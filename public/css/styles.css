@@ -1,3 +1,43 @@
+body {
+   
+    background-color: rgb(213, 213, 213);
+    padding: 0;
+   
+      
+
+}
+
+.pub{
+    
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+
+
+
+}
+
+.pub:hover{
+    background-color: chartreuse;
+    animation: pop-up 2sec font-size=150% 0sec infinite forwards step-start;
+}
+
+.navbars{
+    
+    
+    /* font-size: 25px; */
+    color: rgb(255, 252, 252);
+
+
+}
+
+.navbar:hover{
+
+    color: rgb(211, 226, 0);
+
+
+}
+
+
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
