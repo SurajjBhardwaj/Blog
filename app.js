@@ -10,7 +10,7 @@ const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pelle
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 const app = express();
-const footers ="partials/footer";
+ 
 
 
 
@@ -29,7 +29,6 @@ app.get("/",function (req,res) {
   res.render("home",{
     first : homeStartingContent,
     datas:datas,
-    footer:footers
   });    
  
 
@@ -55,6 +54,22 @@ app.get("/compose",function (req,res) {
 
 })
 
+app.get("/post/:postname",function (req,res) {
+
+   const route=req.params.postname;
+  re
+   for(var i=0;i<datas.length;i++){
+     
+    if(route===datas[i].tittle){
+      console.log("match found");
+    }
+
+   }
+   console.log("Not a match");
+   
+  
+})
+
 app.post("/compose",function (req,res) {
       
 
@@ -64,7 +79,7 @@ app.post("/compose",function (req,res) {
       };
 
       datas.push(data);
-      //  console.log(data);
+       //console.log(data);
        res.redirect("/");
   
 })
