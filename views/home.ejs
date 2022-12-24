@@ -2,13 +2,13 @@
 
 <br /><br /><br /><br /><br />
 <div class="container home">
-    <div>
-      <h1>Home</h1>
-    </div>
-    <div class="container">
-      <p><%= first %></p>
-    </div>
-    <br>
+  <div>
+    <h1>Home</h1>
+  </div>
+  <div class="container">
+    <p><%= first %></p>
+  </div>
+  <br />
 
   <!-- 
   purana method
@@ -17,15 +17,29 @@
  <% } %>
   -->
   <!-- naya method-->
-      <% datas.forEach(function(data){ %>
-      <h1><%= data.tittle %></h1>
-   
-     
-      <p><%= data.messege %></p>
-     
+  <% datas.forEach(function(data){ %>
+  <h1><%= data.tittle %></h1>
+
+  <p id="sort">
+    <%= data.messege.substring(0,100) %>
+    <a href="/post/<%=data.tittle%>">.......read more </a>
+  </p>
+
   <% }) %>
-  <br><br>
-</div>  
- 
+
+  <center>
+    <a href="/compose" style="color: azure">
+      <button
+        type="button"
+        class="bbtn btn-primary btn-lg btn-block"
+        style="display: inline; width: fit-content; align-items: center"
+      >
+        ADD ANOTHER
+      </button>
+    </a>
+  </center>
+
+  <br/>
+</div>
+
 <%- include('partials/footer'); -%>
- 

@@ -3,9 +3,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const _=require("lodash");
+
 const { restart } = require("nodemon");
 
-const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
+const homeStartingContent = " This is a most useful and engaging website in this website you can go from one page to another and it's a backend";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
@@ -56,16 +58,21 @@ app.get("/compose",function (req,res) {
 
 app.get("/post/:postname",function (req,res) {
 
-   const route=req.params.postname;
-  re
-   for(var i=0;i<datas.length;i++){
+  //  const postdata=req.params.postname;//this params will help you to know what user is requesting after post route
+  const postdata=_.lowerCase(req.params.postname); //this lowecase of lodash will convert anything to lowercase
+  for(var i=0;i<datas.length;i++){
      
-    if(route===datas[i].tittle){
-      console.log("match found");
-    }
+    const storeddata=_.lowerCase(datas[i].tittle);
+    if(postdata===storeddata){
+       
+      
 
-   }
-   console.log("Not a match");
+      res.render("newpost",{
+           
+        tittle:datas[i].tittle,
+        content:datas[i].messege
+}) }}
+   
    
   
 })
