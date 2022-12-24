@@ -1,12 +1,31 @@
 <%- include('partials/header'); -%>
 
 <br /><br /><br /><br /><br />
-
-<div>
-  <h1>Home</h1>
-  <div>
-    <p><%= first %></p>
-  </div>
-</div>
-
+<div class="container home">
+    <div>
+      <h1>Home</h1>
+    </div>
+    <div class="container">
+      <p><%= first %></p>
+    </div>
+    <br>
+    
+  <!-- 
+  purana method
+ <% for(var i=0;i<datas.length;i++) { %>
+  <%     console.log(datas[i].tittle);  %>
+ <% } %>
+  -->
+  <!-- naya method-->
+      <% datas.forEach(function(data){ %>
+      <h1><%= data.tittle %></h1>
+   
+     
+      <p><%= data.messege %></p>
+     
+  <% }) %>
+  <br><br>
+</div>  
+ 
 <%- include('partials/footer'); -%>
+ 

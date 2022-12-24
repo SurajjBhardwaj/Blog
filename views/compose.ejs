@@ -1,10 +1,44 @@
 <%- include('partials/header'); -%>
 
 <br /><br /><br /><br /><br />
-<h1>Compose</h1>
-<form action="/compose" method="POST">
-  <input  type="text" name="what">
-  <button type="submit" name="button" >Publish</button>
-</form>
+
+<div class="container composebox">
+  <h1>Compose</h1>
+  <br />
+  <div class="container">
+    <form action="/compose" method="POST" target="_self" autocomplete="on">
+      <div class="container">
+        <div class="form-group">
+          <label for="input" style="text-align: left">Tittle</label><br />
+          <input
+            name="new"
+            type="text"
+            id="input"
+            placeholder="Add your Tittle"
+            class="form-control"
+            style="width: 70%"
+          />
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="form-group">
+          <label for="messege">Your content</label>
+          <textarea
+            name="what"
+            id="messege"
+            style="width: 90%; height: auto"
+            placeholder="Enter your messeges"
+            class="form-control"
+          ></textarea>
+        </div>
+        <button type="submit" name="button" class="btn btn-primary">
+          Publish
+        </button>
+      </div>
+    </form>
+    <br />
+  </div>
+</div>
 
 <%- include('partials/footer'); -%>
